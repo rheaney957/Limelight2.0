@@ -13,7 +13,7 @@ export default function Header(props: HeadProps)
   return (
     <>
     <Head>
-      <title>Limelight- {props.route}</title>
+      <title>Academy Dublin -- {props.route}</title>
     </Head >
           <header className={styles.header}>
           <div className={styles.shineLogo}>
@@ -21,12 +21,12 @@ export default function Header(props: HeadProps)
           </div>
           <div className={styles.socials}>
             <ul className={styles.socialsList}>
-              <li><a href="https://www.tiktok.com/@limelightbelfast" target="_blank" rel="noreferrer">
+              <li><a href="https://www.tiktok.com/@theacademydublin" target="_blank" rel="noreferrer">
                 <i style={{content:'f082'}} className="fa-brands fa-tiktok"></i></a>
               </li>
-              <li><a href="https://twitter.com/LimelightNI" target="_blank" rel="noreferrer"><i className="fa-brands fa-twitter"></i></a></li>
-              <li><a href="https://www.facebook.com/limelightbelfast/" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook"></i></a></li>
-              <li><a href="https://www.instagram.com/limelight.belfast/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
+              <li><a href="https://x.com/academydublin" target="_blank" rel="noreferrer"><i className="fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://www.facebook.com/TheAcademyDublin/" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/academydublin/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
             </ul>
           </div>
         </header>

@@ -34,16 +34,6 @@ export default function NavBar({menu, setMenu}: NavBarProps)
                                 Live Shows
                             </Link>
                         </li>
-                        <li className={styles.navItem}  onClick={() => setMenu(false)}>
-                            <Link
-                                href="./club-nights"
-                                legacyBehavior
-                                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
-
-                            >
-                                Club Nights
-                            </Link>
-                        </li>
                         <li className={styles.navItem} onClick={() => setMenu(false)}>
                             <Link
                                 legacyBehavior
@@ -51,24 +41,6 @@ export default function NavBar({menu, setMenu}: NavBarProps)
                                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
                             >
                                 Venues
-                            </Link>
-                        </li>
-                        <li className={styles.navItem} onClick={() => setMenu(false)}>
-                            <Link
-                                legacyBehavior
-                                href="./venue-hire"
-                                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
-                            >
-                                Venue Hire
-                            </Link>
-                        </li>
-                        <li className={styles.navItem} onClick={() => setMenu(false)}>
-                            <Link
-                                legacyBehavior
-                                href="./birthday-bookings"
-                                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
-                            >
-                                Birthday Bookings
                             </Link>
                         </li>
                         <li className={styles.navItem} onClick={() => setMenu(false)}>

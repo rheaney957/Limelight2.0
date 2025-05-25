@@ -20,7 +20,7 @@ export interface LiveGigsProps {
 export default function LiveGigs({menu, setMenu, SSRdata}:LiveGigsProps)
 {
   const [events, setEvents] = useState(SSRdata);
-  const [venueCloudId, setVenueCloudId] = useState(10);
+  const [venueCloudId, setVenueCloudId] = useState(21);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -37,18 +37,18 @@ export default function LiveGigs({menu, setMenu, SSRdata}:LiveGigsProps)
 
 
   if (isLoading) return <Loading/>
-  if (!events) return <p>No Limelight live gigs</p>
+  if (!events) return <p>No Academy live shows</p>
 
   const gigs = events?.events;
 
   return (
     <div className={styles.container}>
       {!menu && <div className={styles.backMobile} onClick={()=> setMenu(true)}><i className="fa-solid fa-arrow-left"></i> </div>}
-      <Header route='Live Gigs' />
+      <Header route='Live Shows' />
       <NavBar menu={menu} setMenu={setMenu} />
       <Breadcrumbs />
       <main className={!menu ? styles.main : styles.mainMobile}>
-        <Layout title='Live Gigs' data={gigs}>
+        <Layout title='Live Shows' data={gigs}>
           {(!isLoading && gigs instanceof Array) && gigs?.map((gig: any, index: number) => (
             <Card
               key={index}
@@ -72,7 +72,7 @@ export default function LiveGigs({menu, setMenu, SSRdata}:LiveGigsProps)
 };
 
   export const getStaticProps = async () =>{
-    const res = await fetch(`https://www.venuecloud.net/api/events?venueCloudId=10`);
+    const res = await fetch(`https://www.venuecloud.net/api/events?venueCloudId=21`);
     const data = await res.json()
 
     return {

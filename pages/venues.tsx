@@ -28,10 +28,10 @@ export default function Venues({menu, setMenu}: VenuesProps)
             <h3>The Telegragh Building</h3>
             <p>124-144 Roval Avenue. Beltast. BT1 IND</p>
             <p>Located on the site of a beautiful 19th Century printing warehouse in Belfast's City Centre is The Telegraph Building (124-144 Royal Avenue, Belfast BT1 1ND), The former Belfast Telegragh newspaper printing press, once at the beating heart of the city's industrial and cultural output, has been developed into a multi purpose venue for a broad range of cultural events. </p>
-            
-            <h3>Limelight 1</h3>
+
+            <h3>The Academy Dublin</h3>
             <p>1 Ormeau Avenue, Belfast, BT2 8HD</p>
-            <p>Limelight 1 is the newest addition to The Limelight complex, a brand live/club venue. The venue has recently hosted live shows from acts including SLAYER, TWO DOOR CINEMA CLUB, TH BREEDERS, DISCLOSURE, STEVE EARLE and PRIMAL SCREAM.</p>
+            <p>The Academy Dublin  is the newest addition to The The Academy Dublin complex, a brand live/club venue. The venue has recently hosted live shows from acts including SLAYER, TWO DOOR CINEMA CLUB, TH BREEDERS, DISCLOSURE, STEVE EARLE and PRIMAL SCREAM.</p>
             </section>
             </Layout>
         </main>

@@ -34,7 +34,7 @@ export interface AllShowsProps {
 export default function AllShows({menu, setMenu, SSRdata}:AllShowsProps)
 {
   const [events, setEvents] = useState<ResponseData>(SSRdata);
-  const [venueCloudId, setVenueCloudId] = useState(10);
+  const [venueCloudId, setVenueCloudId] = useState(21);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function AllShows({menu, setMenu, SSRdata}:AllShowsProps)
 
 
   if (isLoading) return <Loading/>
-  if (!events) return <p>No Limelight events</p>
+  if (!events) return <p>No Academy events</p>
 
   const gigs = events?.events;
 
@@ -86,7 +86,7 @@ export default function AllShows({menu, setMenu, SSRdata}:AllShowsProps)
 }
 
 export const getStaticProps = async () =>{
-  const res = await fetch(`https://www.venuecloud.net/api/events?venueCloudId=10`);
+  const res = await fetch(`https://www.venuecloud.net/api/events?venueCloudId=21`);
   const data = await res.json()
 
   return {
