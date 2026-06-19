@@ -25,7 +25,6 @@ export default function VenueHireForm()
       {!submit ?
         <>
           <p>Do you want to celebrate your birthday at The Limelight, or hire one of our venues for a private function?
-            <br/>
           Then email our dedicated team for information at info@limelightbelfast.com or using the contact form below..</p>
           <div><label>
             <input name="name" type="text" placeholder="Full Name *" required onChange={(e) => handleChange('name', (e.target.value).toString())} />

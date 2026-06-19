@@ -1,6 +1,6 @@
 .primary {
   background-color: #fed202;
-  color: #fff;
+  color: #1a1a1a;
   padding: 15px 25px;
   font-size: 16px;
   border-radius: 6px;
@@ -11,6 +11,9 @@
   transition: ease background-color 250ms;
   font-weight: 600;
   width: 100%;
+}
+.primary[type="submit"] {
+  padding: 10px 25px !important;;
 }
 .primary a {
   text-decoration: none;
@@ -34,6 +37,11 @@
   .primary {
     padding: 5px 10px;
   }
+}
+@media (max-width: 600px) {
+    .primary[type="submit"] {
+        width: 100%;
+    }
 }
 
 .secondary {

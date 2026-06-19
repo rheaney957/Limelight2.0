@@ -359,7 +359,7 @@
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: #fff;
+  color: #fed202;
 }
 
 .venueCard p {
@@ -389,10 +389,9 @@
 
 /* Contact US */
 .contact {
-  margin-bottom: 20px;
-  background-color: #232222;
-  padding: 10px 10px 30px 10px;
-  border-radius: 4px;
+  background-color: rgba(26, 26, 26, 0.99);
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
   color: #fff;
 }
 

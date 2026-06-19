@@ -23,14 +23,20 @@ export default function Venues({ onMenuToggle, mobileMenuOpen }: VenuesProps)
       <main className={styles.main}>
         <Layout title="Venue" FAQs={true}>
            <section className={styles.venueCard}>
-            <h3>The Telegragh Building</h3>
-            <p>124-144 Roval Avenue. Beltast. BT1 IND</p>
-            <p>Located on the site of a beautiful 19th Century printing warehouse in Belfast's City Centre is The Telegraph Building (124-144 Royal Avenue, Belfast BT1 1ND), The former Belfast Telegragh newspaper printing press, once at the beating heart of the city's industrial and cultural output, has been developed into a multi purpose venue for a broad range of cultural events. </p>
-            <br/>
+
             <h3>Limelight 1</h3>
             <p>1 Ormeau Avenue, Belfast, BT2 8HD</p>
             <p>Limelight 1 is the newest addition to The Limelight complex, a brand live/club venue. The venue has recently hosted live shows from acts including SLAYER, TWO DOOR CINEMA CLUB, TH BREEDERS, DISCLOSURE, STEVE EARLE and PRIMAL SCREAM.</p>
-            </section>
+             <br/>
+            <h3>Limelight 2</h3>
+            <p>1 Ormeau Avenue, Belfast, BT2 8HD</p>
+            <p>The Limelight 2 first opened in 1984, and has hosted a veritable "who's who" of live acts, including THE STROKES, MANIC STREET PREACHERS, JOE STRUMMER, BLUR and countless others. The venue regularly hosts live & club events.</p>
+             <br/>
+            <h3>The Rock Garden</h3>
+            <p>1 Ormeau Avenue, Belfast, BT2 8HD</p>
+            <p>Our rooftop terrace, The Rock Garden is open everyday until late as part of Katy's Bar and is also open as part our weekly clubnights and live shows.</p>
+             <br/>
+             </section>
           </Layout>
         </main>
 
