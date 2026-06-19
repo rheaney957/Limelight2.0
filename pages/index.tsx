@@ -26,20 +26,16 @@ export interface ResponseData
 }
 
 export interface AllShowsProps {
-  menu: boolean;
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  onMenuToggle: () => void;
+  mobileMenuOpen?: boolean;
   SSRdata: ResponseData;
 }
 
-export default function AllShows({menu, setMenu, SSRdata}:AllShowsProps)
+export default function AllShows({ onMenuToggle, mobileMenuOpen, SSRdata }: AllShowsProps)
 {
   const [events, setEvents] = useState<ResponseData>(SSRdata);
   const [venueCloudId, setVenueCloudId] = useState(10);
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    fetchEvents();
-  }, [venueCloudId]);
 
   const fetchEvents = async () => {
     setIsLoading(true)
@@ -49,6 +45,11 @@ export default function AllShows({menu, setMenu, SSRdata}:AllShowsProps)
     setIsLoading(false)
   };
 
+  useEffect(() => {
+    fetchEvents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [venueCloudId]);
+
 
   if (isLoading) return <Loading/>
   if (!events) return <p>No Limelight events</p>
@@ -57,11 +58,10 @@ export default function AllShows({menu, setMenu, SSRdata}:AllShowsProps)
 
   return (
     <div className={styles.container}>
-      {!menu && <div className={styles.backMobile} onClick={()=> setMenu(true)}><i className="fa-solid fa-arrow-left"></i> </div>}
       <Header route='All Shows'/>
-      <NavBar menu={menu} setMenu={setMenu}/>
+      <NavBar onMenuToggle={onMenuToggle} isOpen={mobileMenuOpen}/>
       <Breadcrumbs />
-      <main className={!menu ? styles.main : styles.mainMobile}>
+      <main className={styles.main}>
         <Layout title='All Shows' data={gigs}>
           {(!isLoading && gigs instanceof Array) && gigs?.map((event: any, index: number) => (
             <Card
@@ -80,7 +80,7 @@ export default function AllShows({menu, setMenu, SSRdata}:AllShowsProps)
           ))}
         </Layout>
       </main>
-      <Footer menu={menu}/>
+      <Footer />
     </div>
   )
 }

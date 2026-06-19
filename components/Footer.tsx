@@ -5,41 +5,36 @@ import buttonStyles from '../styles/Button.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 
-export interface FooterProps
-{
-  menu?: boolean;
-}
-
-export default function Footer(props: FooterProps)
+export default function Footer()
 {
   const router = useRouter();
   return (
-    <footer className={`${styles.footer} ${props.menu && styles.footerMobile}`} >
+    <footer className={styles.footer} >
       <div className={styles.footerDetails}>
         <div className={styles.footerLinks}>
           <ul className={styles.footerRoutes}>
             <li>
               <Link
-                href="./club-events"
+                href="./"
                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
               >
                 Club Nights
               </Link>
             </li>
-            <li>
+             <li>
               <Link
-                href="./comedy"
+                href="./venues"
                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
               >
-                Comedy
+                Venues
               </Link>
             </li>
             <li>
               <Link
-                href="./"
+                href="./venue-hire"
                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
               >
-                Live Gigs
+                Venue Hire
               </Link>
             </li>
             <li>
@@ -60,12 +55,12 @@ export default function Footer(props: FooterProps)
             </li>
           </ul>
           <ul className={styles.footerSocialsList}>
-            <li><a href="https://www.tiktok.com/@shinebelfast" target="_blank" rel="noreferrer">
-              TikTok</a>
-            </li>
-            <li><a href="https://twitter.com/ShineBelfast" target="_blank" rel="noreferrer">Twitter</a></li>
-            <li><a href="https://www.facebook.com/ShineBelfastNI" target="_blank" rel="noreferrer">Facebook</a></li>
-            <li><a href="https://www.instagram.com/shine.belfast/" target="_blank" rel="noreferrer">Instagram</a></li>
+              <li><a href="https://www.tiktok.com/@limelightbelfast" target="_blank" rel="noreferrer">
+                <i style={{content:'f082'}} className="fa-brands fa-tiktok"></i></a>
+              </li>
+              <li><a href="https://twitter.com/LimelightNI" target="_blank" rel="noreferrer"><i className="fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://www.facebook.com/limelightbelfast/" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/limelight.belfast/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
             <li>
               <Link
                 href="./privacy-policy"
@@ -76,7 +71,7 @@ export default function Footer(props: FooterProps)
             </li>
 
           </ul>
-          <div className={styles.footerCopyright}>Limelight Belfast Limited - {new Date().getFullYear()} -
+          <div className={styles.footerCopyright}>The Limelight - {new Date().getFullYear()} -
             <Link
                 href="./privacy-policy"
                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
@@ -88,7 +83,7 @@ export default function Footer(props: FooterProps)
         </div>
         <div className={styles.footerMailing}>
 
-          <form id="subscribe-form" action="//www.venuecloud.net/s/f/27/17" method="POST" className={styles.footerForm}>
+          <form id="subscribe-form" action="//www.venuecloud.net/s/f/21/17" method="POST" className={styles.footerForm}>
 	          <input type="hidden" name="contact_permission" value="yes"/>
             <input className={styles.formName} type="text" name="firstname" placeholder="First Name" required />
             <input className={styles.formEmail} type="text" name="surname" placeholder="Surname" required />

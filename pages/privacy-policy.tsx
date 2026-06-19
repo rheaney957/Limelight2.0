@@ -5,20 +5,19 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 export interface PrivacyPolicyProps {
-    menu: boolean;
-    setMenu: React.Dispatch<React.SetStateAction<boolean>>;
+    onMenuToggle: () => void;
+    mobileMenuOpen?: boolean;
   }
 
-export default function Home({menu, setMenu}: PrivacyPolicyProps)
+export default function Home({ onMenuToggle, mobileMenuOpen }: PrivacyPolicyProps)
 {
     return (
         <div className={styles.container}>
-            {!menu && <div className={styles.backMobile} onClick={()=> setMenu(true)}><i className="fa-solid fa-arrow-left"></i> </div>}
             <Header route='Home' />
-            <NavBar menu={menu} setMenu={setMenu}/>
+            <NavBar onMenuToggle={onMenuToggle} isOpen={mobileMenuOpen}/>
             <Breadcrumbs />
 
-            <main className={!menu ? styles.main : styles.mainMobile}>
+            <main className={styles.main}>
                 <div className={styles.privacyPolicyContainer}>
                     <h2>Privacy Policy</h2>
 
@@ -73,7 +72,7 @@ export default function Home({menu, setMenu}: PrivacyPolicyProps)
                 </div>
             </main>
 
-            <Footer menu={menu}/>
+            <Footer />
         </div>
     )
 }

@@ -12,20 +12,16 @@ import Loading from '../components/Loading'
 import { ResponseData } from './index'
 
 export interface LiveGigsProps {
-  menu: boolean;
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  onMenuToggle: () => void;
+  mobileMenuOpen?: boolean;
   SSRdata: ResponseData;
 }
 
-export default function LiveGigs({menu, setMenu, SSRdata}:LiveGigsProps)
+export default function LiveGigs({ onMenuToggle, mobileMenuOpen, SSRdata }: LiveGigsProps)
 {
   const [events, setEvents] = useState(SSRdata);
   const [venueCloudId, setVenueCloudId] = useState(10);
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    fetchEvents();
-  }, [venueCloudId]);
 
   const fetchEvents = async () => {
     setIsLoading(true)
@@ -35,20 +31,24 @@ export default function LiveGigs({menu, setMenu, SSRdata}:LiveGigsProps)
     setIsLoading(false)
   };
 
+  useEffect(() => {
+    fetchEvents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [venueCloudId]);
+
 
   if (isLoading) return <Loading/>
-  if (!events) return <p>No Limelight live gigs</p>
+  if (!events) return <p>No Limelight live shows</p>
 
   const gigs = events?.events;
 
   return (
     <div className={styles.container}>
-      {!menu && <div className={styles.backMobile} onClick={()=> setMenu(true)}><i className="fa-solid fa-arrow-left"></i> </div>}
-      <Header route='Live Gigs' />
-      <NavBar menu={menu} setMenu={setMenu} />
+      <Header route='Live Shows' />
+      <NavBar onMenuToggle={onMenuToggle} isOpen={mobileMenuOpen} />
       <Breadcrumbs />
-      <main className={!menu ? styles.main : styles.mainMobile}>
-        <Layout title='Live Gigs' data={gigs}>
+      <main className={styles.main}>
+        <Layout title='Live Shows' data={gigs}>
           {(!isLoading && gigs instanceof Array) && gigs?.map((gig: any, index: number) => (
             <Card
               key={index}
@@ -66,7 +66,7 @@ export default function LiveGigs({menu, setMenu, SSRdata}:LiveGigsProps)
           ))}
         </Layout>
       </main>
-      <Footer menu={menu}/>
+      <Footer />
     </div>
   )
 };

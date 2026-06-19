@@ -35,11 +35,11 @@ export default function Card({gig: {
     <section className={styles.cardContainer}>
       <div className={styles.card}>
         <div className={styles.cardDate}>
-          <div>{moment(startDate?.date)?.format('D') ?? null}</div>
-          <div className={styles.cardDateMonth}>
+          <span>{moment(startDate?.date)?.format('D') ?? null}</span>
+          <span className={styles.cardDateMonth}>
             {moment(startDate?.date).format('MMM') ?? null}
-          </div>
-          <div>{moment(startDate?.date).format('YYYY') ?? null}</div>
+          </span>
+          <span>{moment(startDate?.date).format('YYYY') ?? null}</span>
         </div>
         <div className={styles.cardDetailsContainer}>
           <div className={styles.cardImage}>
@@ -61,12 +61,14 @@ export default function Card({gig: {
               <span className={styles.cardInfoLocation}>
                 <span>{location ?? 'TBD'}</span>
               </span>
-              <div className={styles.cardTagContainer}><div className={styles.cardTag}><span className={`${styles.tagColor} ${styles[status ? 'soldOut' : 'available']}`}/><span>{(status ? 'Sold Out' : 'Available')}</span></div></div>
             </div>
           </div>
-          <div className={styles.cardTickets}>
-            <Button ticketsUrl={ticketsUrl} style={{fontWeight: '600'}} disabled={!!status} text={status ? "SOLD OUT" : "Buy Tickets"} />
-          </div>
+        </div>
+      </div>
+      <div className={styles.cardFooter}>
+        <div className={styles.cardTagContainer}><div className={styles.cardTag}><span className={`${styles.tagColor} ${styles[status ? 'soldOut' : 'available']}`}/><span>{(status ? 'Sold Out' : 'Available')}</span></div></div>
+        <div className={styles.cardTickets}>
+          <Button ticketsUrl={ticketsUrl} style={{fontWeight: '600'}} disabled={!!status} text={status ? "SOLD OUT" : "Buy Tickets"} />
         </div>
       </div>
     </section>

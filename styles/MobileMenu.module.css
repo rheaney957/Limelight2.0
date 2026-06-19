@@ -1,0 +1,140 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #101413;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.menuHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.menuLogo {
+  margin-bottom: 2rem;
+}
+
+.menuLogo img {
+  width: 200px;
+  height: auto;
+}
+
+.menuSocials ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5rem;
+}
+
+.menuSocials li a {
+  color: white;
+  font-size: 28px;
+  transition: color 0.3s ease;
+}
+
+.menuSocials li a:hover {
+  color: #a98d00;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.menuItem {
+  border-top: 3px solid #fed202;
+  border-bottom: 3px solid #fed202;
+  margin-bottom: -3px;
+  text-align: center;
+  animation: slideIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.menuItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.menuItem:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.menuItem:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.menuItem:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.menuItem a {
+  display: block;
+  padding: 1.5rem 2rem;
+  color: #fed202;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.menuItem a:hover,
+.menuItem a.active {
+  background-color: rgba(0, 144, 255, 0.1);
+}
+
+.footerContainer {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+/* Hide on desktop */
+@media screen and (min-width: 481px) {
+  .overlay {
+    display: none;
+  }
+}

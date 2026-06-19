@@ -2,7 +2,6 @@
 
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Logo from '/public/images/logo.png'
 import Link from 'next/link';
 export interface HeadProps {
   route: string;
@@ -13,11 +12,11 @@ export default function Header(props: HeadProps)
   return (
     <>
     <Head>
-      <title>Limelight- {props.route}</title>
+      <title>Limelight -- {props.route}</title>
     </Head >
           <header className={styles.header}>
           <div className={styles.shineLogo}>
-          <Link href="./"><img style={{width: '200px'}} src={Logo.src} alt="shine-logo" /></Link>
+          <Link href="./"><img style={{width: '320px', padding: '10px 0'}} src={`./images/LLlogo.png`} alt="shine-logo" /></Link>
           </div>
           <div className={styles.socials}>
             <ul className={styles.socialsList}>
