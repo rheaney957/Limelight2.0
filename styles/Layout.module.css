@@ -96,7 +96,7 @@
 
 .header {
   font-size: 24px;
-  color: #fff;
+  color: #fed202;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -239,31 +239,50 @@
 /* Mailing list styles */
 
 .mailingListContainer {
-  background-color: #232222;
-  padding: 2rem;
-  border-radius: 8px;
-  margin: 1rem 0 2rem 0;
-  border: 1px solid #232222;
+  background-color: rgba(26, 26, 26, 0.97);
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.mailingListContainer .birthdaybookings {
+  color: #fff;
+}
+
+.birthdaybookings {
+  color: #fff;
+  margin-bottom: 1.5rem;
 }
 
 .mailingListTitle {
-  font-size: 20px;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 1rem;
+  color: #fed202;
+  margin-bottom: 0.75rem;
   margin-top: 0;
-  text-align: center;
+  justify-self: center;
 }
 
 .mailingListForm {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .mailingListRow {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
+}
+
+.mailingListLabel {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .mailingListField {
@@ -273,31 +292,37 @@
 .mailingListField input {
   width: 100%;
   height: 40px;
-  font-size: 16px;
-  color: #464646;
+  font-size: 0.9rem;
+  color: #fff;
   border-radius: 4px;
-  border: 1px solid #ddd;
-  padding: 0 10px;
-  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.mailingListField input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .mailingListField input:focus {
   outline: none;
-  border-color: #ce0812;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  border-color: #fed202;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .mailingListButton {
   background-color: #fed202;
-  color: #464646;
+  color: #1a1a1a;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 0 20px;
   height: 40px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
+  align-self: flex-end;
 }
 
 .mailingListButton:hover {
@@ -308,42 +333,13 @@
   transform: translateY(1px);
 }
 
-@media (min-width: 980px) {
-  .mailingListForm {
-    flex-direction: row;
-    align-items: flex-end;
-  }
-
+@media (max-width: 600px) {
   .mailingListRow {
-    flex: 1;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
   .mailingListButton {
-    flex-shrink: 0;
-    width: auto;
-    min-width: 120px;
-  }
-}
-
-@media (max-width: 768px) {
-  .mailingListContainer {
-    padding: 1.5rem;
-  }
-
-  .mailingListRow {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .mailingListContainer {
-    padding: 1rem 0;
-    background: none;
-    border: none;
-  }
-
-  .mailingListTitle {
-    font-size: 18px;
+    width: 100%;
   }
 }

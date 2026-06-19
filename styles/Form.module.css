@@ -1,48 +1,109 @@
 .form {
     width: 100%;
-    padding: 20px 20px 0 20px ;
+    padding: 0;
 }
-.form input:focus,
-.form textarea:focus {
-    border: 2px solid #06494f;
+
+.formHeader {
+    margin-bottom: 1rem;
+}
+
+.formTitle {
+    font-size: 1.4rem;
+    margin: 0 0 0.4rem 0;
+    color: #fed202;
+}
+
+.formDescription {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+@media (min-width: 600px) {
+    .formGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0 1rem;
+    }
+}
+
+.formGroup {
+    margin-bottom: 0.85rem;
+}
+
+.formLabel {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form input[type="email"],
 .form input[type="text"],
 .form textarea {
-  box-sizing: border-box;
-  width: 100%;
-  margin-bottom: 2rem;
-  border: 1px solid #06494f;
-  resize: vertical;
-  height: 40px;
-  border-radius: 4px;
-  padding: 0 10px;
-  color: #06494f;
-  cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    resize: vertical;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0 0.75rem;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    margin-bottom: 1rem;
+}
+
+.form input[type="email"]::placeholder,
+.form input[type="text"]::placeholder,
+.form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.form input[type="email"]:focus,
+.form input[type="text"]:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: #fed202;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .form textarea {
-  height: 100px;
-  max-height: 500px;
-  padding: 10px;
+    height: 80px;
+    max-height: 200px;
+    padding: 0.6rem 0.75rem;
+    line-height: 1.4;
 }
 
 .submit {
     display: flex;
-    justify-content: center;
-}
-.submit input[type="submit"], .submit label {
-    width: 100%;
+    justify-content: flex-end;
+    margin-top: 0.25rem;
 }
 
+.successMessage {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
 
+.successMessage h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #fed202;
+}
 
-@media (min-width: 780px) {
-    .submit {
-        justify-content: flex-end;
-    }
-    .submit input[type="submit"], .submit label {
-        width: unset;
-    }
+.successMessage p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
 }

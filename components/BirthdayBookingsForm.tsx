@@ -24,28 +24,65 @@ export default function BirthdayBookingsForm()
     <form action="location.php" method="post" className={styles.form}>
       {!submit ?
         <>
-          <p>If you have any questions regarding Birthday bookings please use the form below. We will be
-            in touch with you as soon as we can.</p>
-          <div><label>
-            <input name="name" type="text" placeholder="Full Name *" required onChange={(e) => handleChange('name', (e.target.value).toString())} />
-          </label>
+          <div className={styles.formHeader}>
+            <h2 className={styles.formTitle}>Birthday Bookings</h2>
+            <p className={styles.formDescription}>
+              If you have any questions regarding Birthday bookings please use the form below. We will be
+              in touch with you as soon as we can.
+            </p>
           </div>
-          <div><input type="email" id='email' placeholder='Email address *' onChange={(e) => handleChange('email', (e.target.value).toString())} /></div>
-          <div><input name="contactnum" type="text" placeholder="Contact phone number *" required onChange={(e) => handleChange('phone', (e.target.value).toString())} /></div>
-
-          <div>
-            <label>
-              <textarea name="comments" onChange={(e) => handleChange('comments', (e.target.value).toString())}></textarea>
-            </label>
+          <div className={styles.formGrid}>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel} htmlFor="birthday-name">Full Name *</label>
+              <input
+                id="birthday-name"
+                name="name"
+                type="text"
+                placeholder="Enter your full name"
+                required
+                onChange={(e) => handleChange('name', (e.target.value).toString())}
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel} htmlFor="birthday-email">Email Address *</label>
+              <input
+                id="birthday-email"
+                type="email"
+                placeholder="Enter your email address"
+                required
+                onChange={(e) => handleChange('email', (e.target.value).toString())}
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel} htmlFor="birthday-phone">Contact Phone Number *</label>
+            <input
+              id="birthday-phone"
+              name="contactnum"
+              type="text"
+              placeholder="Enter your phone number"
+              required
+              onChange={(e) => handleChange('phone', (e.target.value).toString())}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label className={styles.formLabel} htmlFor="birthday-comments">Additional Comments</label>
+            <textarea
+              id="birthday-comments"
+              name="comments"
+              placeholder="Tell us about your birthday event — number of guests, preferred date, any special requests..."
+              onChange={(e) => handleChange('comments', (e.target.value).toString())}
+            ></textarea>
           </div>
           <div className={styles.submit}>
-            <label>
-              <input className={button.primary} type="submit" name="Submit" value="Submit" onClick={() => setSubmit(true)} />
-            </label>
+            <input className={button.primary} type="submit" name="Submit" value="Submit" onClick={() => setSubmit(true)} />
           </div>
         </>
-        : <><h2>Success</h2>
-          <p>Thank you for contacting us. We will be in touch with you shortly with your enquiry.</p></>
+        :
+        <div className={styles.successMessage}>
+          <h2>🎉 Request Sent!</h2>
+          <p>Thank you for contacting us. We will be in touch with you shortly with your enquiry.</p>
+        </div>
       }
     </form>
   )

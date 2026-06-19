@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import styles from "../styles/Layout.module.css";
+import formStyles from "../styles/Form.module.css";
 import {
   FC,
   ReactNode,
@@ -16,12 +17,14 @@ import DatePicker from "react-datepicker";
 import { format } from "date-fns";
 
 import "react-datepicker/dist/react-datepicker.css";
+import BirthdayBookingsForm from "./BirthdayBookingsForm";
 
 export type LayoutPropTypes = HTMLAttributes<HTMLElement> & {
   title: string;
   FAQs?: boolean;
   children?: ReactNode | undefined;
   data?: any;
+  BirthdayBookings?: Boolean;
 };
 
 const Layout: FC<LayoutPropTypes> = ({
@@ -29,6 +32,7 @@ const Layout: FC<LayoutPropTypes> = ({
   FAQs = false,
   children,
   data,
+  BirthdayBookings,
 }) => {
   const [dateField, setDateField] = useState<Date>();
   const [searchField, setSearchField] = useState("");
@@ -254,10 +258,12 @@ const Layout: FC<LayoutPropTypes> = ({
           >
             <div className={styles.mailingListRow}>
               <div className={styles.mailingListField}>
-                <input type="text" placeholder="Full Name" required />
+                <label className={styles.mailingListLabel} htmlFor="subscribe-name">Full Name *</label>
+                <input id="subscribe-name" type="text" placeholder="Enter your full name" required />
               </div>
               <div className={styles.mailingListField}>
-                <input type="email" placeholder="Email Address" required />
+                <label className={styles.mailingListLabel} htmlFor="subscribe-email">Email Address *</label>
+                <input id="subscribe-email" type="email" placeholder="Enter your email address" required />
               </div>
             </div>
             <button type="submit" className={styles.mailingListButton}>
@@ -265,6 +271,11 @@ const Layout: FC<LayoutPropTypes> = ({
             </button>
           </form>
         </div>
+        {BirthdayBookings && (
+          <section className={styles.mailingListContainer}>
+            <BirthdayBookingsForm/>
+          </section>
+        )}
         {!FAQs ? (
           <div className={styles.searchContainer}>
             <div className={styles.searchDate}>
