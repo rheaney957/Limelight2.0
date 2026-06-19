@@ -2,60 +2,67 @@ import * as React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/NavBar.module.css';
-import { SetStateAction } from 'react';
-import Footer from './Footer';
 
 export interface NavBarProps {
-    menu: boolean;
-    setMenu: React.Dispatch<SetStateAction<boolean>>;
+  onMenuToggle: () => void;
+  isOpen?: boolean;
 }
 
-export default function NavBar({menu, setMenu}: NavBarProps)
-{
+export default function NavBar({ onMenuToggle, isOpen = false }: NavBarProps) {
+  const router = useRouter();
 
-    const [click, setClick] = React.useState(false);
-    const router = useRouter();
-
-    const handleClick = () => setClick(!click);
-    const Close = () => setClick(false);
-
-    return (
-        <div>
-            <div className={menu ? styles.mainContainer :  styles.mainContainerMobile} onClick={() => Close()} />
-            <nav className={styles.navbar} onClick={e => e.stopPropagation()}>
-             <div className={menu ? styles.navContainer :  styles.navContainerMobile}>
-                    <ul className={styles.navMenu}>
-                        <li className={styles.navItem} onClick={() => setMenu(false)}>
-                            <Link
-                                legacyBehavior
-                                href="./"
-                                className={styles.active}
-                            >
-                                Live Shows
-                            </Link>
-                        </li>
-                        <li className={styles.navItem} onClick={() => setMenu(false)}>
-                            <Link
-                                legacyBehavior
-                                href="./venues"
-                                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
-                            >
-                                Venues
-                            </Link>
-                        </li>
-                        <li className={styles.navItem} onClick={() => setMenu(false)}>
-                            <Link
-                                legacyBehavior
-                                href="./contact-us"
-                                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
-                            >
-                                Contact Us
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </nav >
-            {menu && <div className={styles.navFooter}><Footer /></div>}
-        </ div >
-    );
+  return (
+    <nav className={styles.navbar}>
+      <button
+        className={styles.mobileMenuButton}
+        onClick={onMenuToggle}
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
+        <i className={isOpen ? "fa-solid fa-times" : "fa-solid fa-bars"}></i>
+      </button>      <div className={styles.navContainer}>
+        <ul className={styles.navMenu}>
+          <li className={styles.navItem}>
+            <Link
+              href="/"
+              className={router.pathname === '/' ? styles.active : ''}
+            >
+              Club Nights
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link
+              href="/venues"
+              className={router.pathname === '/venues' ? styles.active : ''}
+            >
+              Venues
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link
+              href="/venue-hire"
+              className={router.pathname === '/venue-hire' ? styles.active : ''}
+            >
+              Venue Hire
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link
+              href="/contact-us"
+              className={router.pathname === '/contact-us' ? styles.active : ''}
+            >
+              Contact Us
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link
+              href="/help-and-FAQs"
+              className={router.pathname === '/help-and-FAQs' ? styles.active : ''}
+            >
+              Help &amp; FAQs
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }

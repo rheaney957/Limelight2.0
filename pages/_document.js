@@ -8,7 +8,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-      <meta name="description" content="theacademydublin.com" />
+      <meta name="description" content="theLimelight.com" />
       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
 
 

@@ -5,16 +5,11 @@ import buttonStyles from '../styles/Button.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 
-export interface FooterProps
-{
-  menu?: boolean;
-}
-
-export default function Footer(props: FooterProps)
+export default function Footer()
 {
   const router = useRouter();
   return (
-    <footer className={`${styles.footer} ${props.menu && styles.footerMobile}`} >
+    <footer className={styles.footer} >
       <div className={styles.footerDetails}>
         <div className={styles.footerLinks}>
           <ul className={styles.footerRoutes}>
@@ -23,7 +18,23 @@ export default function Footer(props: FooterProps)
                 href="./"
                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
               >
-                Live Shows
+                Club Nights
+              </Link>
+            </li>
+             <li>
+              <Link
+                href="./venues"
+                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
+              >
+                Venues
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="./venue-hire"
+                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
+              >
+                Venue Hire
               </Link>
             </li>
             <li>
@@ -44,12 +55,12 @@ export default function Footer(props: FooterProps)
             </li>
           </ul>
           <ul className={styles.footerSocialsList}>
-            <li><a href="https://www.tiktok.com/@theacademydublin" target="_blank" rel="noreferrer">
-              TikTok</a>
-            </li>
-            <li><a href="https://x.com/academydublin" target="_blank" rel="noreferrer">Twitter</a></li>
-            <li><a href="https://www.facebook.com/TheAcademyDublin" target="_blank" rel="noreferrer">Facebook</a></li>
-            <li><a href="https://www.instagram.com/academydublin/" target="_blank" rel="noreferrer">Instagram</a></li>
+              <li><a href="https://www.tiktok.com/@limelightbelfast" target="_blank" rel="noreferrer">
+                <i style={{content:'f082'}} className="fa-brands fa-tiktok"></i></a>
+              </li>
+              <li><a href="https://twitter.com/LimelightNI" target="_blank" rel="noreferrer"><i className="fa-brands fa-twitter"></i></a></li>
+              <li><a href="https://www.facebook.com/limelightbelfast/" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook"></i></a></li>
+              <li><a href="https://www.instagram.com/limelight.belfast/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a></li>
             <li>
               <Link
                 href="./privacy-policy"
@@ -60,7 +71,7 @@ export default function Footer(props: FooterProps)
             </li>
 
           </ul>
-          <div className={styles.footerCopyright}>The Academy Dublin - {new Date().getFullYear()} -
+          <div className={styles.footerCopyright}>The Limelight - {new Date().getFullYear()} -
             <Link
                 href="./privacy-policy"
                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}

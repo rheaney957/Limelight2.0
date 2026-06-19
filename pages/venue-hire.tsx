@@ -5,24 +5,24 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import ContactUsForm from '../components/ContactUsForm'
-export interface ContactUsProps {
+import VenueHireForm from '../components/venueHireForm'
+export interface VenueHireProps {
   onMenuToggle: () => void;
   mobileMenuOpen?: boolean;
   SSRdata: any;
 }
 
-export default function ContactUs({ onMenuToggle, mobileMenuOpen, SSRdata }: ContactUsProps)
+export default function VenueHire({ onMenuToggle, mobileMenuOpen, SSRdata }: VenueHireProps)
 {
   return (
     <div className={styles.container}>
-     <Header route='Contact Us'/>
+     <Header route='Venue Hire'/>
       <NavBar onMenuToggle={onMenuToggle} isOpen={mobileMenuOpen}/>
       <Breadcrumbs />
       <main className={styles.main}>
-        <Layout title="Contact Us" FAQs={true}>
+        <Layout title="Venue Hire" FAQs={true}>
           <section className={styles.contact}>
-            <ContactUsForm/>
+            <VenueHireForm/>
           </section>
         </Layout>
         </main>
@@ -31,9 +31,3 @@ export default function ContactUs({ onMenuToggle, mobileMenuOpen, SSRdata }: Con
   )
 }
 
-export async function getStaticProps() {
-
-  const res = await fetch('https://www.shine.net/newShineSite/out/JSON/featuredGigs.json', { cache: 'no-store' })
-  const data = await res.json()
-  return {props: {SSRdata: data}, revalidate: 60}
-}
