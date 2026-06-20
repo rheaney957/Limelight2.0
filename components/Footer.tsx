@@ -18,6 +18,14 @@ export default function Footer()
                 href="./"
                 className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
               >
+                Live Shows
+              </Link>
+            </li>            
+            <li>
+              <Link
+                href="./club-nights"
+                className={router.pathname == "/" ? (styles.navLinks, styles.active) : styles.navLinks}
+              >
                 Club Nights
               </Link>
             </li>

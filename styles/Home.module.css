@@ -425,3 +425,128 @@
   border-radius: 8px;
   overflow: hidden;
 }
+
+
+  .clubSection {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .clubCard {
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    min-height: 260px;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .clubMedia {
+    min-height: 260px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .clubImage {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .clubContent {
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(254, 210, 2, 0.18);
+    color: #fed202;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+
+  .clubContent h2 {
+    margin: 0;
+    font-size: clamp(1.9rem, 2.5vw, 2.6rem);
+    letter-spacing: 0.03em;
+  }
+
+  .clubIntro {
+    margin: 0;
+    line-height: 1.7;
+    color: #e8e8e8;
+    font-size: 1rem;
+  }
+
+  .clubHighlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    color: #f7f7f7;
+    font-size: 0.97rem;
+    line-height: 1.7;
+  }
+
+  .clubHighlights li::before {
+    content: '•';
+    color: #fed202;
+    display: inline-block;
+    width: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  .roomGrid {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+    color: #dcdcdc;
+    font-size: 0.95rem;
+  }
+
+  .roomGrid span {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 900px) {
+    .clubCard {
+      grid-template-columns: 1fr;
+    }
+    .clubMedia {
+      min-height: 220px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .clubContent {
+      padding: 1.5rem;
+    }
+    .clubCard {
+      border-radius: 16px;
+    }
+    .clubSection {
+      gap: 1.5rem;
+    }
+  }

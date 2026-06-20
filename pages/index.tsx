@@ -62,7 +62,7 @@ export default function AllShows({ onMenuToggle, mobileMenuOpen, SSRdata }: AllS
       <NavBar onMenuToggle={onMenuToggle} isOpen={mobileMenuOpen}/>
       <Breadcrumbs />
       <main className={styles.main}>
-        <Layout title='All Shows' data={gigs} BirthdayBookings>
+        <Layout title='All Shows' data={gigs} >
           {(!isLoading && gigs instanceof Array) && gigs?.map((event: any, index: number) => (
             <Card
               key={event.id}

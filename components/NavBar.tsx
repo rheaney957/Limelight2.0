@@ -26,6 +26,14 @@ export default function NavBar({ onMenuToggle, isOpen = false }: NavBarProps) {
               href="/"
               className={router.pathname === '/' ? styles.active : ''}
             >
+              Live Shows
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link
+              href="/club-nights"
+              className={router.pathname === '/club-nights' ? styles.active : ''}
+            >
               Club Nights
             </Link>
           </li>

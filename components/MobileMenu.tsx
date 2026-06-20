@@ -65,6 +65,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <ul className={styles.menuList}>
             <li className={styles.menuItem}>
               <Link href="/" className={router.pathname === '/' ? styles.active : ''}>
+                Live Shows
+              </Link>
+            </li>
+            <li className={styles.menuItem}>
+              <Link href="/club-nights" className={router.pathname === '/club-nights' ? styles.active : ''}>
                 Club Nights
               </Link>
             </li>
