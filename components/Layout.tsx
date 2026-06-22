@@ -70,17 +70,30 @@ const Layout: FC<LayoutPropTypes> = ({
     return null;
   }
 
+  const clearAllFilters = () => {
+    setSearchField("");
+    setDateField(undefined);
+    setstateDate("");
+    setMonthField(null);
+    const searchEl = document.getElementById("search") as HTMLInputElement;
+    const dateEl = document.getElementById("dateSearch") as HTMLInputElement;
+    const monthEl = document.getElementById("monthSearch") as HTMLSelectElement;
+    if (searchEl) searchEl.value = "";
+    if (dateEl) dateEl.value = "";
+    if (monthEl) monthEl.value = "";
+  };
+
   const handleChange = (e: {
     target: { value: React.SetStateAction<string> };
   }) => {
-    const el = document.getElementById("dateSearch") as HTMLInputElement;
-
+    // Clear other filters when text search is used
     setDateField(undefined);
-    if (el) {
-      el.value = "";
-    } else {
-      new Error("No date field found");
-    }
+    setstateDate("");
+    setMonthField(null);
+    const dateEl = document.getElementById("dateSearch") as HTMLInputElement;
+    const monthEl = document.getElementById("monthSearch") as HTMLSelectElement;
+    if (dateEl) dateEl.value = "";
+    if (monthEl) monthEl.value = "";
 
     setSearchField(e.target.value);
     if (e.target.value === "") {
@@ -91,13 +104,13 @@ const Layout: FC<LayoutPropTypes> = ({
   };
 
   const handleDateChange = (date: Date | React.SetStateAction<Date> | null) => {
+    // Clear other filters when date is selected
     setSearchField("");
-    const el = document.getElementById("search") as HTMLInputElement;
-    if (el) {
-      el.value = "";
-    } else {
-      new Error("No search field found");
-    }
+    setMonthField(null);
+    const searchEl = document.getElementById("search") as HTMLInputElement;
+    const monthEl = document.getElementById("monthSearch") as HTMLSelectElement;
+    if (searchEl) searchEl.value = "";
+    if (monthEl) monthEl.value = "";
 
     // @ts-ignore
     date && setDateField(date);
@@ -114,13 +127,15 @@ const Layout: FC<LayoutPropTypes> = ({
     setMonthField(selectedMonth);
 
     // Clear other filters when month is selected
+    setSearchField("");
+    setDateField(undefined);
+    setstateDate("");
+    const searchEl = document.getElementById("search") as HTMLInputElement;
+    const dateEl = document.getElementById("dateSearch") as HTMLInputElement;
+    if (searchEl) searchEl.value = "";
+    if (dateEl) dateEl.value = "";
+
     if (selectedMonth !== null) {
-      setSearchField("");
-      setDateField(undefined);
-      const searchEl = document.getElementById("search") as HTMLInputElement;
-      const dateEl = document.getElementById("dateSearch") as HTMLInputElement;
-      if (searchEl) searchEl.value = "";
-      if (dateEl) dateEl.value = "";
       setSearchShow(true);
     } else {
       setSearchShow(false);
@@ -189,7 +204,7 @@ const Layout: FC<LayoutPropTypes> = ({
     }) => {
       if (monthField === null) return true;
       const gigDate = new Date(gig.startDate.date);
-      return gigDate.getMonth() === monthField;
+      return gigDate.getMonth() === monthField && gigDate.getFullYear() === currDate.getFullYear();
     }
   );
 
@@ -308,6 +323,7 @@ const Layout: FC<LayoutPropTypes> = ({
             <div className={styles.searchMonth}>
               {!FAQs && (
                 <select
+                  id="monthSearch"
                   onChange={handleMonthChange}
                   value={monthField !== null ? monthField : ""}
                 >
@@ -331,10 +347,10 @@ const Layout: FC<LayoutPropTypes> = ({
           }`}
         >
           {searchShow ? (
-            searchField ? (
-              <>{filtered}</>
-            ) : monthField !== null ? (
+            monthField !== null ? (
               <>{filteredMonth}</>
+            ) : searchField ? (
+              <>{filtered}</>
             ) : (
               dateField && <>{filteredDate}</>
             )
